@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+    <title>myWebsite</title>
+    <meta name="keywords">
+    <meta name="">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <style>
+        body{
+            font-family: "Microsoft YaHei UI", sans-serif;
+        }
+        .navbar{
+            border-radius: 0;
+
+        }
+        .carousel{
+            margin-bottom: 50px;
+        }
+
+        section{
+            border: 2px solid #7d7d7d ;
+            padding-top: 30px;
+            box-shadow: 5px 5px 5px #727272;
+        }
+        p{
+            margin-top: 5px;
+            /*background: #e9e9e9;*/
+            text-indent: 20px;
+        }
+
+        body{
+            position: relative;
+            overflow-y: scroll;
+        }
+
+        .nav-stacked{
+            width: 200px;
+            position: fixed;
+            left: 5%;
+            top: 40%;
+            background: #fff;
+            border: 1px solid #d2d2d2;
+            padding: 5px ;
+
+        }
+        .panel-footer{
+            color: #000000;
+        }
+
+        .nav-stacked li:nth-of-type(1){
+            background: url("pic/ws3.gif") no-repeat;
+
+;
+        }
+        .nav-stacked li:nth-of-type(2){
+            background: url("pic/ztw3.gif") no-repeat;
+
+        }
+        .nav-stacked li:nth-of-type(3){
+            background: url("pic/ne3.gif") no-repeat;
+
+        }
+        .nav-stacked li:nth-of-type(4){
+            background: url("pic/xj3.gif") no-repeat;
+
+        }
+        .nav-stacked li {
+            text-indent: 40px;
+
+        }
+        aside{position: fixed;left: 7%;bottom: 20%;width: 50px;height: 50px;overflow: hidden;background: url("pic/db.gif")
+        no-repeat;border-radius: 6px;display: none}
+
+        aside:hover{background: url("pic/db.gif") -50px 0;cursor: pointer}
+
+        @media  (max-width: 500px) {
+            .col-md-4, .col-md-2 {
+                display: none;
+            }
+        }
+
+
+
+    </style>
+    <script>
+
+
+            $(window).scroll(function () {
+                $('h3').each(function () {
+                        st = ($(window).scrollTop());
+                        vt = ($(this).offset().top);
+
+                        if(st>=vt-200){
+                            id_panel = $(this).attr('id');
+                            $('#'+id_panel+1).addClass('active');
+                            $(".nav-stacked li").not($('#'+id_panel+1)).removeClass('active');
+                        }
+                    });
+                ft = $('h3:first').offset().top;
+                if(st<=ft-100){
+                    $(".nav-stacked li").removeClass('active');
+
+
+                    if (st > 100) {
+                        $('aside').fadeIn(600);
+                    } else {
+                        $('aside').fadeOut(600);
+                    }
+
+                }
+
+            });
+             $(function(){
+                w = $(window).width();
+                if(w<600){
+                    $('.nav-stacked ').css('display','none');
+                }
+                 $('aside').click(function () {
+                     $('body,html').animate({scrollTop:0},600);
+                 })
+
+             })
+
+    </script>
+</head>
+<body data-spy="scroll" data-target="#nm2">
+    <header>
+        <nav class="navbar  navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">游戏天地</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">类别 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">网游</a></li>
+                                <li><a href="#">单机</a></li>
+                                <li><a href="#">手游</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">主机平台</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">其他</a></li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="游戏名称">
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">注册</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">忘记密码</a></li>
+                                <li><a href="#">找回密码</a></li>
+                                <li><a href="#">帮助信息</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">用户中心</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+
+
+
+
+    <main class="container">
+        <div class="jumbotron">
+            <h1>你好，欢迎来到游戏天地!</h1>
+            <p>游戏，给心灵提供一个停靠的码头。你可以放松紧绷的神经，你也可以短暂的逃避一下现实，可以体会一把现实中没有的成就感，
+                但是要记住这些都是虚拟的，不要沉迷其中，享受健康的生活。 </p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">精彩即将呈现....</a></p>
+        </div>
+
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="pic/ws1.jpg" alt="...">
+                </div>
+                <div class="item">
+                    <img src="pic/zt1.jpg" alt="...">
+                </div>
+                <div class="item">
+                    <img src="pic/ne1.jpg" alt="...">
+                </div>
+                <div class="item">
+                    <img src="pic/xj1.jpg" alt="...">
+                </div>
+
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </main>
+    <section class="container">
+        <div class="img_border">
+            <div class="panel panel-primary" id="ws2">
+                <div class="panel-heading">
+                    <h3 class="panel-title" id="ws">巫师3：狂猎</h3>
+                </div>
+                <div class="panel-body">
+                    <img src="pic/ws2.jpg" alt="" class=" img-responsive">
+                    <p class="lead">
+                        <br/>《<mark>巫师3：狂猎（The Witcher 3: Wild Hunt）</mark>》是由CD Projekt RED制作，WB Games（NA）、Spike Chunsoft（JP）发行的一款由同名小说改编而成的角色扮演类单机游戏，
+                        于2015年5月19日发行，为《巫师》系列游戏作品的第三部。
+                        <br/>——2015年10月，获第33届金摇杆奖最佳剧情、最佳视觉设计、最佳游戏时刻，更获得了年度最佳游戏大奖。
+                        <br/>——并获得IGN 2015年度最佳游戏。
+                        <br/>——2016年7月，波兰开发商CD Projekt Red正式确认，《巫师3：狂猎》将迎来年度版（Game of the Year Edition），将会囊括游戏发售后的所有追加内容，
+                        包括两个大型资料片“石之心”和“血与酒”。
+                        <br/>——其中血与酒大型资料片获得由2016年The Game Awards(简称TGA)于北京时间12月2日举办颁奖典礼,所颁布的年度“最佳游戏角色扮演游戏”奖。
+                    </p>
+                </div>
+                <div class="panel-footer">
+                    <div class="row clearfix">
+                        <div class="col-md-2 pull-left">发布者：NO.1</div>
+                        <div class="col-md-3 pull-right" >发布时间：2017.2.2</div>
+                        <div class="col-md-2" ></div>
+                        <div class="col-md-4" >游戏主题：巫师3</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel  panel-primary" id="ztw2">
+                <div class="panel-heading ">
+                    <h3 class="panel-title" id="ztw">战国无双：真田丸</h3>
+                </div>
+                <div class="panel-body">
+                    <img src="pic/zt2.jpg" alt="" class=" img-responsive">
+
+                    <p class="lead">
+                        <br/>《<mark>战国无双：真田丸(Samurai Warriors: Sanada Maru)</mark>》是由光荣制作发行的一款动作割草类游戏，由大河剧《真田丸》改编而成，
+                        本作以日本战国时代为舞台，让玩家操作名留青史之武将横扫群敌，体验一骑当千爽快感的战术动作游戏《战国无双》系列最新作。
+
+                        <br/>——游戏将以被誉为「天下第一勇士」真田幸村的一生为中心深入剖析，展开壮大的故事情节。自幼颠沛的他，看着父亲真田昌幸背影成长，
+                        从而找出自己的人生目标，到在「大坂之阵」壮烈成仁为止，仔细描写幸村的传奇一生的故事。</p>
+
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-2">发布者：NO.2</div>
+                        <div class="col-md-3 pull-right" >发布时间：2017.3.3</div>
+                        <div class="col-md-2" ></div>
+                        <div class="col-md-4" >游戏主题：战国无双真田丸</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary" id="ne2">
+                <div class="panel-heading">
+                    <h3 class="panel-title panel-primary" id="ne">尼尔：机械纪元</h3>
+                </div>
+                <div class="panel-body">
+                    <img src="pic/ne2.jpg" alt="" class=" img-responsive">
+                    <p class="lead">
+                        <br/>《<mark>尼尔：机械纪元</mark>》是一款战斗类游戏。想必很多玩家都被女主角打斗时的飒爽英姿吸引。这款游戏包含了很多暴力信息，也有自身独立的战斗系统。<br/>
+                        ——游戏故事发生在初代之后，外星生命入侵地球。<br/>
+
+                        ——外星生命开发出了机械生命体作为武器(游戏中各种圆脑袋)。<br/>
+
+                        ——人类由于完全干不过这些机械生命体，只好逃亡月球。<br/>
+
+                        ——剩余在地球上的人形机器人组成了抵抗组织与机械生命体进行战斗。<br/>
+
+                        ——人类也成立了专门的战斗用部队“欧罗哈”，2B，9S等也是其中成员。2B是战斗型机器人，9S是侦查型机器人。</p>
+
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-2">发布者：NO.3</div>
+                        <div class="col-md-3 pull-right" >发布时间：2017.4.4</div>
+                        <div class="col-md-2" ></div>
+                        <div class="col-md-4" >游戏主题：尼尔机械纪元</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary" id="xj2">
+                <div class="panel-heading">
+                    <h3 class="panel-title panel-primary" id="xj">仙剑奇侠传</h3>
+                </div>
+                <div class="panel-body">
+                    <img src="pic/xj2.jpg" alt="" class=" img-responsive">
+                    <p class="lead">
+                        <br/>《<mark>仙剑奇侠传</mark>》是由中国台湾大宇资讯股份有限公司（简称“大宇资讯”或“大宇”）旗下发行的系列电脑游戏。
+                        仙剑故事以中国古代的仙妖神鬼传说为背景、以武侠和仙侠为题材，迄今已发行八款单机角色扮演游戏、一款衍生经营模拟游戏、两款网络游戏和一款网络社交游戏。
+                        系列首款作品发行于1995年7月，荣获两岸当时无数的游戏奖项，被众多玩家誉为“旷世奇作”。
+                        《仙剑奇侠传》系列现已衍生出漫画、小说、电视剧、舞台剧、声优剧、卡牌等相关，成为大宇重要的知识产权（ip）品牌。 </p>
+
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-2">发布者：NO.4</div>
+                        <div class="col-md-3 pull-right" >发布时间：2017.5.5</div>
+                        <div class="col-md-2" ></div>
+                        <div class="col-md-4" >游戏主题：仙剑奇侠传</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <ul class="nav nav-pills nav-stacked">
+        <li id='ws1' role="presentation"><a href="#ws2">巫师3：狂猎</a></li>
+        <li id='ztw1' role="presentation"><a href="#ztw2">战国无双：真田丸</a></li>
+        <li id='ne1' role="presentation"><a href="#ne2">尼尔：机械纪元</a></li>
+        <li id='xj1' role="presentation"><a href="#xj2">仙剑奇侠传</a></li>
+    </ul>
+
+    <footer class="container">
+        <nav aria-label="Page navigation" class="pull-right">
+            <ul class="pagination">
+                <li class="active">
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    <aside></aside>
+</body>
+</html>
